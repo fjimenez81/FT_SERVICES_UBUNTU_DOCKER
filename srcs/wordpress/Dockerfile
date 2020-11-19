@@ -11,13 +11,14 @@ RUN apk update && \
 	php7-zlib php7-curl php7-mbstring php7-json php7-session
 
 # Download Wordpress
-ADD https://wordpress.org/latest.tar.gz .
+#ADD https://wordpress.org/latest.tar.gz .
+COPY wordpress-5.5.3.tar.gz .
 
 # Install Wordpress
-RUN tar -xvf latest.tar.gz && \
+RUN tar -xvf wordpress-5.5.3.tar.gz && \
 	mv wordpress /www && \
 	mv wp-config.php /www/ && \
-	rm -f latest.tar.gz
+	rm -f wordpress-5.5.3.tar.gz
 
 # Install telegraf
 RUN apk add --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/edge/testing/ telegraf && \

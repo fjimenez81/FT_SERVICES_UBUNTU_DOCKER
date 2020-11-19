@@ -25,7 +25,6 @@ spec:
         - containerPort: 21010
           name: pasv-mid
         - containerPort: 21011
-          name: pasv-max
         livenessProbe:
           exec:
             command:
